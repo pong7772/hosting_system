@@ -171,7 +171,7 @@ const profile = () => {
           </div>
         </div>
       </div>
-      <EditProfile />
+      {/* <EditProfile /> */}
     </div >
   );
 };
