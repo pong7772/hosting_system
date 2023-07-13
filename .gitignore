@@ -14,9 +14,6 @@ target/
 .sts4-cache
 # node modules and npm/yarn lock files and next config
 node_modules/
-yarn.lock
-package-lock.json
-next.config.js
 # next.js build output
 .next/
 # production build output
