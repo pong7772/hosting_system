@@ -13,9 +13,9 @@ import { ToastContainer } from "react-toastify";
 import EditUser from "@/components/partials/app/user-service/EditUser";
 import FeedbackResult from "@/components/partials/app/form/feedback-result";
 import FormAddFeedBack from "@/components/FeedBackForm";
-import {  Input, Radio, RadioChangeEvent } from 'antd';
-import { Select,Table } from 'antd';
-import BaseDialog from '@/components/BaseDialog';
+import { Input, Radio, RadioChangeEvent } from 'antd';
+import { Select, Table } from 'antd';
+// import BaseDialog from '@/components/BaseDialog';
 import Item from "antd/es/list/Item";
 
 
@@ -24,7 +24,7 @@ const FeedbackPostPage = () => {
     const [selectedCourse, setSelectedCourse] = useState('');
 
     const { Option } = Select;
-    
+
 
     // const [filler, setFiller] = useState("list");
     // // use width is necessary for the repsonsive layout
@@ -42,27 +42,27 @@ const FeedbackPostPage = () => {
     //     }, 1000);
     // }, [filler]);
     const [dataSource, setDataSource] = useState([
-        
+
         {
             key: '1',
             course: 'Data Structures',
-            lecturer:'Dinesh Kumar',
+            lecturer: 'Dinesh Kumar',
             numberofvote: 20
-          },
-          {
+        },
+        {
             key: '2',
             course: 'Circuit Analysis',
-            lecturer:'Leo',
+            lecturer: 'Leo',
             numberofvote: 20
-            
-          },
-      ]);
-      function handleLectureChange(value:any) {
+
+        },
+    ]);
+    function handleLectureChange(value) {
         setSelectedLecture(value);
-      }
-      function handleCourseChange(value: any) {
+    }
+    function handleCourseChange(value) {
         setSelectedCourse(value);
-      }
+    }
 
     return (
         <div>
@@ -71,9 +71,9 @@ const FeedbackPostPage = () => {
                 <div className=" w-full mr-2">
                     <p className="text-sm">Filter Lecture</p>
                     <Select id="lecture-select" value={selectedLecture} onChange={handleLectureChange} className='w-full'>
-                    <Option value="">Select a lecture</Option>
-                    <Option value="John Doe">Dinesh Kumar</Option>
-                    <Option value="Jane Smith">Leo</Option>
+                        <Option value="">Select a lecture</Option>
+                        <Option value="John Doe">Dinesh Kumar</Option>
+                        <Option value="Jane Smith">Leo</Option>
                     </Select>
                 </div>
                 <div className=" w-full">
@@ -91,8 +91,8 @@ const FeedbackPostPage = () => {
                     </Select>
                 </div>
             </div>
-            
-                {/* <Radio.Group onChange={handleOptionChange} value={selectedOption}>
+
+            {/* <Radio.Group onChange={handleOptionChange} value={selectedOption}>
                     <Space direction="hirizontal">
                         <Radio value='lecture'>Filter By Lecture</Radio>
                         <Radio value='course'>Filter By Course</Radio>
@@ -160,14 +160,14 @@ const FeedbackPostPage = () => {
                 </div>
             )}
             <AddUser /> */}
-          
+
 
             {/* <EditUser /> */}
-           
 
-            
 
-           
+
+
+
         </div>
     );
 };

@@ -9,13 +9,13 @@ export default function FormAddFeedBack() {
   const handleAddFields = () => {
     setInputFields([...inputFields, { value: '' }]);
   };
-  const handleChangeInput = (index: number, event: any) => {
+  const handleChangeInput = (index, event) => {
     const values = [...inputFields];
     values[index].value = event.target.value;
     setInputFields(values);
   };
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Input fields:", inputFields);
   };

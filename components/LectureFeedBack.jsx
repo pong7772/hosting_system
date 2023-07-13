@@ -8,7 +8,7 @@ export default function LectureFeedback() {
 
   const [selectedLecture, setSelectedLecture] = useState('');
 
-  function handleLectureChange(value:any) {
+  function handleLectureChange(value) {
     setSelectedLecture(value);
     // Programmatically navigate to the response page with the selected lecture as a parameter
   }

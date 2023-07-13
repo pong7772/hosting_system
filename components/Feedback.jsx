@@ -5,12 +5,12 @@ import LectureFeedback from './LectureFeedBack';
 import CourseFeedback from './CourseFeedBack';
 import { PoweroffOutlined } from '@ant-design/icons';
 import { Button, Input, Radio, RadioChangeEvent, Space } from 'antd';
-import { Select,Table } from 'antd';
+import { Select, Table } from 'antd';
 import BaseDialog from './BaseDialog';
 import Link from 'next/link';
 import { useRouter } from "next/navigation";
 
-  
+
 const { Option } = Select;
 export default function Feedback() {
   const [selectedOption, setSelectedOption] = useState('');
@@ -28,7 +28,7 @@ export default function Feedback() {
       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       course: 'Circuit Analysis',
       numberofquestion: 20
-      
+
     },
   ]);
 
@@ -76,7 +76,7 @@ export default function Feedback() {
   ];
 
 
-  const [loadings, setLoadings] = useState<boolean[]>([]);
+  const [loadings, setLoadings] = useState([]);
   const [open, setOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
   const [editingKey, setEditingKey] = useState('');
@@ -108,7 +108,7 @@ export default function Feedback() {
     setOpen(false);
   };
 
-  const enterLoading = (index: number) => {
+  const enterLoading = (index) => {
     setLoadings((prevLoadings) => {
       const newLoadings = [...prevLoadings];
       newLoadings[index] = true;
@@ -124,15 +124,35 @@ export default function Feedback() {
     }, 6000);
   };
 
-  function handleOptionChange(e: RadioChangeEvent) {
+  function handleOptionChange(e) {
     setSelectedOption(e.target.value);
   }
-  const onChange = (e: RadioChangeEvent) => {
+  const onChange = (e) => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
   return (
     <div>
+      <div className='flex justify-end mt-10 w-full'>
+        <BaseDialog
+          open={open}
+          onSubmit={handleOk}
+          onCancel={handleCancel}
+          fields={fields}
+          dialogTitle='Add Department'
+        />
+      </div>
+      {/* <Table
+            bordered
+            dataSource={dataSource}
+            columns={columns}
+            rowClassName="editable-row"
+            pagination={{
+                onChange: cancel,
+            }}
+            /> */}
+
+
       <label>Please Select Filter Type</label>
       <div className='py-2 px-2'>
         <Radio.Group onChange={handleOptionChange} value={selectedOption}>
@@ -143,12 +163,15 @@ export default function Feedback() {
         </Radio.Group>
       </div>
       {selectedOption === 'lecture' && <LectureFeedback />}
-      {selectedOption === 'course' && <CourseFeedback />} 
-      {/* {/* <Select value={selectedOption} onChange={handleOptionChange} className='w-1/2'>
+      {selectedOption === 'course' && <CourseFeedback />}
+
+
+      {/* <Select value={selectedOption} onChange={handleOptionChange} className='w-1/2'>
         <Option value="">Select an option</Option>
         <Option value="lecture">View feedback for a lecture</Option>
         <Option value="course">View feedback for a course</Option>
       </Select> */}
+
 
     </div>
   );
