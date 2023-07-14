@@ -110,7 +110,7 @@ const AcademicPostPage = () => {
                 </div>
             )}
             <AddAcademic filler={filler} />
-            {/* <EditAcademic filler={filler} /> */}
+            <EditAcademic filler={filler} />
         </div>
     );
 };

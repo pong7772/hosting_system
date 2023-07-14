@@ -92,9 +92,6 @@ const OptionComponent = ({ data, ...props }) => {
 const EditProfile = () => {
   const { editModal, editItem } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
-  const [startDate, setStartDate] = useState(new Date());
-  const [updateDate, setUpdateDate] = useState(new Date());
-  console.log(editItem, editModal)
 
   const FormValidationSchema = yup
     .object({
